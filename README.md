@@ -3,33 +3,83 @@
 > I consider LaTeX resumes to be a secret handshake of sorts, something that makes me significantly more likely to be inclined to hire a candidate.  
 > &mdash;<cite>[zackelan](https://news.ycombinator.com/item?id=10452606)<cite> on HN
 
-A boilerplate to ease the pain of building and maintaining a résumé for RN's using LaTeX.
+A boilerplate to ease the pain of building and maintaining a resume for RN's using LaTeX.
 
 ## Intro
 
-Separating presentation from content makes life easier. The typical content of a CV is a perfect fit for a YAML file due to its structured nature:
+Separating presentation from content makes life easier. The typical content of a CV or resume is a perfect fit for a YAML file due to its structured nature:
 
 ```YAML
 ---
-name: Friedrich Nietzsche
+# Personal details
+name: Florence Nightingale
 address:
-- Humboldtstraße 36
-- 99425 Weimar
-- Prussia
-email: friedrich@thevoid.de
-# ...
-experience:
-- years: 1879--1889
-  employer: Freiberufler
-  job: Freier Philisoph
-  city: Sils-Maria
-- years: 1869–-1879
-  employer: Universität Basel
-  job: Professor für klassische Philologie
-  city: Basel
+- 41.008°N 29.016°E
+#- address line 2
+phone: "8675309"
+email: florencenightingale@example.net
+pgp: 0x000000000000000
+# Insert URLs without http://
+urls:
+- wki.pe/Florence_Nightingale
+
+
+# Sections
+
+#you can write about yourself here, if you want. Just uncomment the line below.
+#intro: "The very first requirement in a hospital is that it should do the sick no harm."
+
+
+
+education:
+- year: 1851
+  subject: Nursing
+  institute: Lutheran Hospital of Pastor Fliedner
+  city: Kaiserswerth, Germany
+- year: 1825-1850
+  subject: Victorian Classical Education
+  institute: Classical Tutors
+  city: Lea Hurst, Embley Park
+
+clinical-experience:
+- years: 1854-1856
+  employer: The British Government
+  unit: Crimean War Effort Barracks
+  city: Cirmea
+- years: 1853-1854
+  employer: Institution for the Care of Sick Gentlewomen in Distressed Circumstances
+  unit: Medical-surgical unit
+  city: London
+
+# Other, non-clinical Employment
+employment:
+- years: 1860
+  employer: Nightingale School of Nursing at St. Thomas’ Hospital
+  job: Founder
+  city: London
+
+# this section is for nursing certification (NIH, BLS, ACLS, etc.)
+skills:
+
+- Cholera Management Programme
+- Basic Sterile Technique Certificate
+- Nursing Statisics for Improving Healthcare
+
+# other skills you are good at or non-nursing certifications
+
+other-skills:
+- Statistics, published best-selling book (Notes on Nursing), lamps
+
+
+# Settings
+mainfont: "Linux Libertine O"
+fontsize: 10pt
+lang: English
+geometry: a4paper, left=35mm, right=35mm, top=40mm, bottom=17mm
+---
 ```
 
-That makes super easy to update a CV while keeping a consistent structure.
+That makes super easy to update a resume while keeping a consistent structure.
 
 Thanks to [pandoc](http://pandoc.org/), we can then access our data from `template.tex` using a special notation. Iterating on repetitive data structures becomes trivial:
 
@@ -46,7 +96,7 @@ LaTeX takes then care of the typesetting with its usual elegance. Below a previe
 
 ![preview](preview.png)
 
-With this method, you can keep your entire CV encoded in a single YAML file, put it under version control (into a gist, for instance), and generate a PDF on the fly when needed. You can also easily export it to other formats, like HTML for web publishing (I've heard [Jekyll](http://jekyllrb.com/) likes YAML). Convenient, portable and time-proof.
+With this method, you can keep your entire resume encoded in a single YAML file, put it under version control (into a gist, for instance), and generate a PDF on the fly when needed. You can also easily export it to other formats, like HTML for web publishing (I've heard [Jekyll](http://jekyllrb.com/) likes YAML). Convenient, portable and time-proof.
 
 ## Dependencies
 
@@ -73,7 +123,7 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 
 ## Available settings
 
-- **`mainfont`**: Hoefler Text is the default, but every font installed on your system should work out of the box (thanks, XeTeX!)
+- **`mainfont`**: "Linux Libertine O" is the default, but every font installed on your system should work out of the box (thanks, XeTeX!)
 - **`fontsize`**: Possible values here are 10pt, 11pt and 12pt.
 - **`lang`**: Sets the main language through the `polyglossia` package. This is important for proper hyphenation, among other things.
 - **`geometry`**: A string that sets the margins through `geometry`. Read [this](https://www.sharelatex.com/learn/Page_size_and_margins) to learn how this package works.
