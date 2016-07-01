@@ -101,7 +101,7 @@ With this method, you can keep your entire resume encoded in a single YAML file,
 2. [Pandoc](http://pandoc.org/), the universal document converter.
 
 ### Linux
-<code>sudo apt-get install texlive</code>
+<code>sudo apt-get install texlive-full</code> (this will take a while)
 
 <code>git clone https://github.com/choosefreesoftware/nurse-resume</code>
 
