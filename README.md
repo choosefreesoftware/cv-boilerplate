@@ -5,9 +5,17 @@
 
 A boilerplate to ease the pain of building and maintaining a resume for RN's using LaTeX.
 
+## Features
+* Type your resume in a text based format and let LaTeX do the typesetting
+* Spot to put your PGP key ID
+* Clinical experience section
+* Spot for nursing certifications
+* Easily update and export your resume
+* Super customizable
+
 ## Intro
 
-Separating presentation from content makes life easier. The typical content of a CV or resume is a perfect fit for a YAML file due to its structured nature:
+Separating presentation from content makes life easier. The typical content of a CV or resume is a perfect fit for a YAML file due to its structured nature. Here is the file you edit, inserting your own informations:
 
 ```YAML
 ---
@@ -81,18 +89,7 @@ geometry: a4paper, left=35mm, right=35mm, top=40mm, bottom=17mm
 
 That makes super easy to update a resume while keeping a consistent structure.
 
-Thanks to [pandoc](http://pandoc.org/), we can then access our data from `template.tex` using a special notation. Iterating on repetitive data structures becomes trivial:
-
-```latex
-$for(experience)$
-  $experience.years$\\
-  \textsc{$experience.employer$}\\
-  \emph{$experience.job$}\\
-  $experience.city$\\[.2cm]
-$endfor$
-```
-
-LaTeX takes then care of the typesetting with its usual elegance. Below a preview of the final result. Check out the [output](output.pdf) to see the compiled PDF.
+Thanks to [pandoc](http://pandoc.org/), LaTeX takes then care of the typesetting with its usual elegance. Below a preview of the final result with a colored background added for contrast (and so you can see the white-space). Check out the [output](output.pdf) to see the compiled PDF.
 
 ![preview](output.png)
 
@@ -143,13 +140,8 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 - If you want to edit the template but LaTeX scares you, these [docs](https://www.sharelatex.com/learn/Main_Page) put together by ShareLaTeX cover most of the basics and are surprisingly kind to the beginner.
 - Odds are your question already has an answer on [TeX Stack Exchange](https://www.sharelatex.com/learn/Main_Page). Also, pretty friendly crowd in there.
 
-## See also
-
-- [invoice-boilerplate](https://github.com/mrzool/invoice-boilerplate) — Simple automated LaTeX invoicing system
-- [letter-boilerplate](https://github.com/mrzool/letter-boilerplate) — Typeset your important letters without leaving your text editor
-
 ## License
 
-This repository contains a modified version of Dario Taraborelli's [cvtex](https://github.com/dartar/cvtex) template.
+This repository contains a modified version of mrzool's [cv-boilerplate](https://github.com/mrzool/cv-boilerplate) template.
 
 License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
