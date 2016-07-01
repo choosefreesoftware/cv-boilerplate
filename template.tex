@@ -34,16 +34,16 @@ $endif$
 \usepackage{xltxtra}
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
-\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}
+\setmainfont [Ligatures={TeX}, Numbers={OldStyle}]{$mainfont$}
 % Cool ampersand
 \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}
 
 % MARGIN NOTES
 %--------------------------------
 \usepackage{marginnote}
-\newcommand{\note}[1]{\marginnote{\scriptsize #1}}
+\newcommand{\note}[1]{\marginnote{{\small} #1}}
 \renewcommand*{\raggedleftmarginnote}{}
-\setlength{\marginparsep}{7pt}
+\setlength{\marginparsep}{15pt}
 \reversemarginpar
 
 % HEADINGS
@@ -70,61 +70,47 @@ $endif$
   citecolor=[rgb]{0.117,0.682,0.858}
 }
 
+
 % DOCUMENT
 %--------------------------------
 \begin{document}
 
-{\LARGE $name$}\\[.2cm]
+{{\huge $name$}\\[.2cm]
 
 $if(urls)$
-\begin{multicols}{2}
+
 $endif$
 
 $for(address)$
 $address$\\
 $endfor$
 
-\vspace{-10pt}
+
 
 $phone$\\
 \href{mailto:$email$}{$email$}\\
-
+PGP: \verb|$pgp$|\\
 
 $if(urls)$
-\columnbreak
+
 
 $for(urls)$
 \href{http://$urls$}{$urls$}\\
 $endfor$
-\end{multicols}
+
 $endif$
 
-\vspace{30pt}
+
 
 $if(intro)$
 $intro$
 $endif$
 
-\subsection*{Areas of Interest}
-$if(skills)$
-\begin{itemize}
-    $for(skills)$
-      \item $skills$
-    $endfor$
-\end{itemize}
-$endif$
+
 
 % \vfill
 
-\vspace{25pt}
 
-\section*{Previous Experience}
-\noindent
-$for(experience)$
-\note{$experience.years$}\textsc{$experience.employer$}\\
-\emph{$experience.job$}\\
-$experience.city$\\[.2cm]
-$endfor$
 
 $if(education)$
 \section*{Education}
@@ -135,11 +121,52 @@ $for(education)$
 $endfor$
 $endif$
 
+\section*{Clinical Experience}
+\noindent
+$for(clinical-experience)$
+\note{$clinical-experience.years$}\textbf{\textsc{$clinical-experience.employer$}}\\
+\emph{$clinical-experience.unit$}\\
+$clinical-experience.city$\\[.2cm]
+$endfor$
+
+\section*{Employment}
+\noindent
+$for(employment)$
+\note{$employment.years$}\textbf{\textsc{$employment.employer$}}\\
+\emph{$employment.job$}\\
+$employment.city$\\[.2cm]
+$endfor$
+
+
+
+\subsection*{Certifications}
+
+
+$if(skills)$
+\begin{itemize}
+    $for(skills)$
+      \item $skills$
+    $endfor$
+\end{itemize}
+$endif$
+
+
+\subsection*{Other Skills}
+$if(other-skills)$
+\begin{itemize}
+    $for(other-skills)$
+      \item $other-skills$
+    $endfor$
+\end{itemize}
+$endif$
+
 $if(languages)$
 \section*{Languages}
 $for(languages)$
 \emph{$languages.language$} ($languages.proficiency$)\\
 $endfor$
 $endif$
+
+
 
 \end{document}
