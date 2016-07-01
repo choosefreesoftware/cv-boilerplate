@@ -39,7 +39,7 @@ education:
 - year: 1825-1850
   subject: Victorian Classical Education
   institute: Classical Tutors
-  city: Lea Hurst, Embley Park
+  city: Lea Hurst & Embley Park
 
 clinical-experience:
 - years: 1854-1856
