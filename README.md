@@ -100,19 +100,32 @@ With this method, you can keep your entire resume encoded in a single YAML file,
 1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `xltxtra` `marginnote` `sectsty` `ulem` `hyperref` `polyglossia`
 2. [Pandoc](http://pandoc.org/), the universal document converter.
 
-To install LaTeX on Mac OS X, I recommend getting the smaller version BasicTeX from [here](https://tug.org/mactex/morepackages.html) and installing the additional packages with `tlmgr` afterwards. Same goes for Linux: install `texlive-base` with your package manager and add the needed additional packages later.
+### Linux
+<code>sudo apt-get install texlive</code>
 
-To install pandoc on Mac OS X, run `brew install pandoc`. To install it on Linux, refer to the [official docs](http://pandoc.org/installing.html).
+<code>git clone https://github.com/choosefreesoftware/nurse-resume</code>
 
-## Getting started
+<code>cd nurse-resume</code>
 
-1. Fill `details.yml` with your personal details, work experience, education, and desired settings.
-2. Run `make` to compile the PDF.
-3. Tweak on `template.tex` until you're satisfied with the result.
+edit <code>details.yml</code> with your informations and desired settings
 
-**Note**: this template needs to be compiled with XeTeX.
+run <code>make</code> to create the PDF
 
-### Note for Windows users
+tweak <code>template.tex</code> to get the results you desire.
+
+**note**: This template requires XeTeX to compile correctly
+
+### Other platforms
+
+I am a Debian GNU/Linux user, So I personally haven't tested this on Mac or Windows. This is advice from the orignal creator of this template, mrzool.
+
+#### Mac
+
+* To install LaTeX on Mac OS X, I recommend getting the smaller version BasicTeX from [here](https://tug.org/mactex/morepackages.html) and installing the additional packages with `tlmgr` afterwards. 
+
+* To install pandoc on Mac OS X, run `brew install pandoc`. To install it on Linux, refer to the [official docs](http://pandoc.org/installing.html).
+
+#### Windows
 
 Although I didn't test it, you can probably use this on Windows, too. Both [Pandoc](http://pandoc.org/installing.html) and LaTeX can be installed on Windows (I recommend [MiKTeX](http://miktex.org/) for that) and you should be able to run makefiles on Windows through [Cygwin](https://www.cygwin.com/). If that's too much hassle, this command should do the trick in Powershell:
 
