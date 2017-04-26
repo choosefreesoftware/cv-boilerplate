@@ -37,7 +37,7 @@ $endif$
 \setmainfont [Ligatures={TeX}, Numbers={OldStyle}]{$mainfont$}
 % Cool ampersand
 \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}
-
+\usepackage{fontawesome}
 % MARGIN NOTES
 %--------------------------------
 \usepackage{marginnote}
@@ -64,7 +64,7 @@ $endif$
   pdftitle={$name$'s CV},
   colorlinks, breaklinks, xetex, bookmarks,
   filecolor=black,
-  urlcolor=[rgb]{0.117,0.682,0.858},
+  urlcolor=red,
   linkcolor=[rgb]{0.117,0.682,0.858},
   linkcolor=[rgb]{0.117,0.682,0.858},
   citecolor=[rgb]{0.117,0.682,0.858}
@@ -75,21 +75,15 @@ $endif$
 %--------------------------------
 \begin{document}
 
-{{\huge $name$}\\[.2cm]
-
+{{\Huge $name$}\\[.2cm]
 $if(urls)$
-
 $endif$
-
 $for(address)$
 $address$\\
 $endfor$
-
-
-
-$phone$\\
-\href{mailto:$email$}{$email$}\\
-PGP: \verb|$pgp$|\\
+\faicon{phone} {\large $phone$}\\
+\faicon{envelope} {\large \href{mailto:$email$}{$email$}}\\
+\faicon{key} {\large PGP: \verb|$pgp$|}\\
 
 $if(urls)$
 
@@ -113,60 +107,48 @@ $endif$
 
 
 $if(education)$
-\section*{Education}
+\section*{\faicon{university} Education}
 \noindent
 $for(education)$
 \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-\emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
+\emph{$education.institute$}$if(education.city)$ | $education.city$$endif$\\[.2cm]
 $endfor$
 $endif$
 
-\section*{Clinical Experience}
-\noindent
-$for(clinical-experience)$
-\note{$clinical-experience.years$}\textbf{\textsc{$clinical-experience.employer$}}\\
-\emph{$clinical-experience.unit$}\\
-$clinical-experience.city$\\[.2cm]
-$endfor$
-
-\section*{Employment}
+\section*{\faicon{user-md} Employment}
 \noindent
 $for(employment)$
-\note{$employment.years$}\textbf{\textsc{$employment.employer$}}\\
-\emph{$employment.job$}\\
-$employment.city$\\[.2cm]
+\note{$employment.years$}\textbf{\textsc{$employment.job$}}\\
+\emph{$employment.employer$} | $employment.city$\\[.1cm]
+{$employment.duties$}\\[.1cm]
 $endfor$
 
 
+\section*{\faicon{medkit} Certifications}
+\noindent
+$for(certs)$
+\note{$certs.status$}\textbf{\textsc{$certs.cert$}}\\
+$endfor$
 
-\subsection*{Certifications}
-
-
-$if(skills)$
-\begin{itemize}
-    $for(skills)$
-      \item $skills$
-    $endfor$
-\end{itemize}
-$endif$
-
-
-\subsection*{Other Skills}
+\section*{\faicon{cogs} Other Skills}
 $if(other-skills)$
-\begin{itemize}
-    $for(other-skills)$
-      \item $other-skills$
-    $endfor$
-\end{itemize}
+$other-skills$
 $endif$
 
-$if(languages)$
-\section*{Languages}
-$for(languages)$
-\emph{$languages.language$} ($languages.proficiency$)\\
+\section*{\faicon{heartbeat} Relevant Clinical Experience}
+\noindent
+$for(clinical-experience)$
+\note{$clinical-experience.years$}\textbf
+\emph{$clinical-experience.unit$}\\
+{\textsc{$clinical-experience.employer$}}\\
+$clinical-experience.city$\\[.2cm]
+{$employment.duties$}\\[.1cm]
 $endfor$
-$endif$
 
+\bigskip 
+\bigskip 
+
+\textit{\underline{References available upon request}} 
 
 
 \end{document}

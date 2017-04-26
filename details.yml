@@ -1,24 +1,18 @@
 ---
 # Personal details
 name: Florence Nightingale
-address:
-- 41.008°N 29.016°E
-#- address line 2
-phone: "8675309"
+phone: "1.800.867.5309"
 email: florencenightingale@example.net
 pgp: 0x000000000000000
 # Insert URLs without http://
 urls:
-- wki.pe/Florence_Nightingale
+#- wki.pe/Florence_Nightingale
 
-
-# Sections
 
 #you can write about yourself here, if you want. Just uncomment the line below.
+
 #intro: "The very first requirement in a hospital is that it should do the sick no harm."
-
-
-
+#####################################
 education:
 - year: 1851
   subject: Nursing
@@ -28,37 +22,37 @@ education:
   subject: Victorian Classical Education
   institute: Classical Tutors
   city: Lea Hurst & Embley Park
-
-clinical-experience:
-- years: 1854-1856
-  employer: The British Government
-  unit: Crimean War Effort Barracks
-  city: Cirmea
-- years: 1853-1854
-  employer: Institution for the Care of Sick Gentlewomen in Distressed Circumstances
-  unit: Medical-surgical unit
-  city: London
-
-# Other, non-clinical Employment
+#####################################
 employment:
 - years: 1860
-  employer: Nightingale School of Nursing at St. Thomas’ Hospital
   job: Founder
+  employer: Nightingale School of Nursing at St. Thomas’ Hospital
   city: London
-
-# this section is for nursing certification (NIH, BLS, ACLS, etc.)
-skills:
-
-- Cholera Management Programme
-- Basic Sterile Technique Certificate
-- Nursing Statisics for Improving Healthcare
-
-# other skills you are good at or non-nursing certifications
-
+  duties: Headmaster and founder of the nursing programme.
+- years: 1853-1854
+  job: Medical-surgical unit
+  employer: Institution for the Care of Sick Gentlewomen in Distressed Circumstances
+  city: London
+  duties: Cared for ladies with a variety of ailments.
+#####################################  
+certs:
+- cert: Cholera Management Programme
+  status: current
+- cert: Basic Sterile Technique Certificate
+  status: current
+- cert: Nursing Statisics for Improving Healthcare
+  status: current
+#####################################
 other-skills:
 - Statistics, published best-selling book (Notes on Nursing), lamps
-
-
+#####################################
+clinical-experience:
+- years: 1854-1856
+  unit: Crimean War Effort Barracks
+  employer: The British Government
+  city: Cirmea
+  #duties: 
+#####################################
 # Settings
 mainfont: "Linux Libertine O"
 fontsize: 10pt

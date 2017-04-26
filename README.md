@@ -89,7 +89,7 @@ geometry: a4paper, left=35mm, right=35mm, top=40mm, bottom=17mm
 
 That makes super easy to update a resume while keeping a consistent structure.
 
-Thanks to [pandoc](http://pandoc.org/), LaTeX takes then care of the typesetting with its usual elegance. Below a preview of the final result with a colored background added for contrast (and so you can see the white-space). Check out the [output](output.pdf) to see the compiled PDF.
+Thanks to [pandoc](http://pandoc.org/), LaTeX takes then care of the typesetting with its usual elegance. Below is a preview of the final result. Check out the [output](output.pdf) to see the compiled PDF.
 
 ![preview](output.png)
 
