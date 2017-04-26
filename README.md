@@ -91,7 +91,7 @@ That makes super easy to update a resume while keeping a consistent structure.
 
 Thanks to [pandoc](http://pandoc.org/), LaTeX takes then care of the typesetting with its usual elegance. Below is a preview of the final result. Check out the [output](output.pdf) to see the compiled PDF.
 
-![preview](output.png)
+![preview](preview.png)
 
 With this method, you can keep your entire resume encoded in a single YAML file, put it under version control (into a gist, for instance), and generate a PDF on the fly when needed. You can also easily export it to other formats, like HTML for web publishing (I've heard [Jekyll](http://jekyllrb.com/) likes YAML). Convenient, portable and time-proof.
 
